@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6F2E426721BBADDD0030A1A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E426621BBADDD0030A1A1 /* AppDelegate.swift */; };
-		6F2E426921BBADDD0030A1A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E426821BBADDD0030A1A1 /* ViewController.swift */; };
+		6F2E426921BBADDD0030A1A1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E426821BBADDD0030A1A1 /* ChatViewController.swift */; };
 		6F2E426C21BBADDD0030A1A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E426A21BBADDD0030A1A1 /* Main.storyboard */; };
 		6F2E426F21BBADDD0030A1A1 /* chatApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E426D21BBADDD0030A1A1 /* chatApp.xcdatamodeld */; };
 		6F2E427121BBADE00030A1A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E427021BBADE00030A1A1 /* Assets.xcassets */; };
 		6F2E427421BBADE00030A1A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E427221BBADE00030A1A1 /* LaunchScreen.storyboard */; };
+		6F2E427F21BBDB9B0030A1A1 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E427D21BBDB9B0030A1A1 /* MyChatTableViewCell.swift */; };
+		6F2E428021BBDB9B0030A1A1 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E427E21BBDB9B0030A1A1 /* MyChatTableViewCell.xib */; };
+		6F2E428321BBDBB20030A1A1 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E428121BBDBB20030A1A1 /* YourChatTableViewCell.swift */; };
+		6F2E428421BBDBB20030A1A1 /* YourChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E428221BBDBB20030A1A1 /* YourChatTableViewCell.xib */; };
 		882F2E2D3D56038F28AD3872 /* Pods_chatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D38E230577BA002AFB979F0 /* Pods_chatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +26,16 @@
 		329B8D004839E424EAA3171B /* Pods-chatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-chatApp/Pods-chatApp.release.xcconfig"; sourceTree = "<group>"; };
 		6F2E426321BBADDD0030A1A1 /* chatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2E426621BBADDD0030A1A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F2E426821BBADDD0030A1A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6F2E426821BBADDD0030A1A1 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		6F2E426B21BBADDD0030A1A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F2E426E21BBADDD0030A1A1 /* chatApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chatApp.xcdatamodel; sourceTree = "<group>"; };
 		6F2E427021BBADE00030A1A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F2E427321BBADE00030A1A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F2E427521BBADE00030A1A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F2E427D21BBDB9B0030A1A1 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		6F2E427E21BBDB9B0030A1A1 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		6F2E428121BBDBB20030A1A1 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
+		6F2E428221BBDBB20030A1A1 /* YourChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourChatTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				6F2E426621BBADDD0030A1A1 /* AppDelegate.swift */,
-				6F2E426821BBADDD0030A1A1 /* ViewController.swift */,
+				6F2E427C21BBD7C10030A1A1 /* View */,
+				6F2E427B21BBD6360030A1A1 /* ViewController */,
 				6F2E426A21BBADDD0030A1A1 /* Main.storyboard */,
 				6F2E427021BBADE00030A1A1 /* Assets.xcassets */,
 				6F2E427221BBADE00030A1A1 /* LaunchScreen.storyboard */,
@@ -81,6 +90,25 @@
 				6F2E426D21BBADDD0030A1A1 /* chatApp.xcdatamodeld */,
 			);
 			path = chatApp;
+			sourceTree = "<group>";
+		};
+		6F2E427B21BBD6360030A1A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6F2E426821BBADDD0030A1A1 /* ChatViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6F2E427C21BBD7C10030A1A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F2E427D21BBDB9B0030A1A1 /* MyChatTableViewCell.swift */,
+				6F2E427E21BBDB9B0030A1A1 /* MyChatTableViewCell.xib */,
+				6F2E428121BBDBB20030A1A1 /* YourChatTableViewCell.swift */,
+				6F2E428221BBDBB20030A1A1 /* YourChatTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AFC7F21E6508946F66D46FDA /* Frameworks */ = {
@@ -151,7 +179,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2E428421BBDBB20030A1A1 /* YourChatTableViewCell.xib in Resources */,
 				6F2E427421BBADE00030A1A1 /* LaunchScreen.storyboard in Resources */,
+				6F2E428021BBDB9B0030A1A1 /* MyChatTableViewCell.xib in Resources */,
 				6F2E427121BBADE00030A1A1 /* Assets.xcassets in Resources */,
 				6F2E426C21BBADDD0030A1A1 /* Main.storyboard in Resources */,
 			);
@@ -206,7 +236,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2E426F21BBADDD0030A1A1 /* chatApp.xcdatamodeld in Sources */,
-				6F2E426921BBADDD0030A1A1 /* ViewController.swift in Sources */,
+				6F2E428321BBDBB20030A1A1 /* YourChatTableViewCell.swift in Sources */,
+				6F2E427F21BBDB9B0030A1A1 /* MyChatTableViewCell.swift in Sources */,
+				6F2E426921BBADDD0030A1A1 /* ChatViewController.swift in Sources */,
 				6F2E426721BBADDD0030A1A1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
