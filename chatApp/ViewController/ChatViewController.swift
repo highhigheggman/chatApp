@@ -19,7 +19,7 @@ class ChatViewController: UIViewController {
         let messageManager = MessageManager()
         
         messageManager.send(groupID: "ID", complection: { messegeID in
-            print(messegeID!)
+            print("送信成功:\(messegeID!)")
         })
         
         messageManager.sync(groupID: "ID", completion: { success in
