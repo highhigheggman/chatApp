@@ -119,10 +119,18 @@
 		6F2E428521BBE2890030A1A1 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				6F2E428A21BBEAD70030A1A1 /* RealmModel */,
 				6F2E428821BBE53B0030A1A1 /* GroupList.swift */,
 				6F2E428621BBE3220030A1A1 /* MesageList.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		6F2E428A21BBEAD70030A1A1 /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RealmModel;
 			sourceTree = "<group>";
 		};
 		AFC7F21E6508946F66D46FDA /* Frameworks */ = {
