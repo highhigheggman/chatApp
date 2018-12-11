@@ -9,12 +9,28 @@
 import UIKit
 
 class ChatViewController: UIViewController {
+    
+    //let messageManager: MessageManagerProtcol
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let messageManager = MessageManager()
+        
+        messageManager.send(groupID: "ID", complection: { messegeID in
+            print(messegeID!)
+        })
+        
+        messageManager.sync(groupID: "ID", completion: { success in
+            if(success!) {
+                print("成功")
+            }
+        })
+        
+        messageManager.showAll(groupID: "ID")
+        
     }
-
 
 }
 

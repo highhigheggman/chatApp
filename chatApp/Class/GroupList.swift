@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+  
 // Sync MasterDB, {Recieve GroupList ?}
 func sync() {
     

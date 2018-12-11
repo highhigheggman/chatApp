@@ -17,8 +17,7 @@
 		6F2E428021BBDB9B0030A1A1 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E427E21BBDB9B0030A1A1 /* MyChatTableViewCell.xib */; };
 		6F2E428321BBDBB20030A1A1 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E428121BBDBB20030A1A1 /* YourChatTableViewCell.swift */; };
 		6F2E428421BBDBB20030A1A1 /* YourChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2E428221BBDBB20030A1A1 /* YourChatTableViewCell.xib */; };
-		6F2E428721BBE3220030A1A1 /* MesageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E428621BBE3220030A1A1 /* MesageList.swift */; };
-		6F2E428921BBE53B0030A1A1 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E428821BBE53B0030A1A1 /* GroupList.swift */; };
+		6F2E429221C01A9D0030A1A1 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E429121C01A9D0030A1A1 /* MessageManager.swift */; };
 		882F2E2D3D56038F28AD3872 /* Pods_chatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D38E230577BA002AFB979F0 /* Pods_chatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +37,7 @@
 		6F2E427E21BBDB9B0030A1A1 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
 		6F2E428121BBDBB20030A1A1 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		6F2E428221BBDBB20030A1A1 /* YourChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourChatTableViewCell.xib; sourceTree = "<group>"; };
-		6F2E428621BBE3220030A1A1 /* MesageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesageList.swift; sourceTree = "<group>"; };
-		6F2E428821BBE53B0030A1A1 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupList.swift; sourceTree = "<group>"; };
+		6F2E429121C01A9D0030A1A1 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageManager.swift; path = RealmModel/MessageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				6F2E428A21BBEAD70030A1A1 /* RealmModel */,
-				6F2E428821BBE53B0030A1A1 /* GroupList.swift */,
-				6F2E428621BBE3220030A1A1 /* MesageList.swift */,
+				6F2E429121C01A9D0030A1A1 /* MessageManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -260,10 +257,9 @@
 				6F2E426F21BBADDD0030A1A1 /* chatApp.xcdatamodeld in Sources */,
 				6F2E428321BBDBB20030A1A1 /* YourChatTableViewCell.swift in Sources */,
 				6F2E427F21BBDB9B0030A1A1 /* MyChatTableViewCell.swift in Sources */,
+				6F2E429221C01A9D0030A1A1 /* MessageManager.swift in Sources */,
 				6F2E426921BBADDD0030A1A1 /* ChatViewController.swift in Sources */,
 				6F2E426721BBADDD0030A1A1 /* AppDelegate.swift in Sources */,
-				6F2E428721BBE3220030A1A1 /* MesageList.swift in Sources */,
-				6F2E428921BBE53B0030A1A1 /* GroupList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
