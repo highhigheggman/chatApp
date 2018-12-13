@@ -8,41 +8,6 @@
 
 import Foundation
 
-// 仮 DB本体との通信用クラス_移動予定
-protocol MastetrMessageAPIProtocol {
-    
-    func send(groupID: String, complection: @escaping(String?) -> Void)
-    
-    func showDiff(groupID: String, latestMessageID: String, messageCount: Int,
-                  complection: @escaping(String?) -> Void)
-    
-    func showAll(groupID: String, complection: @escaping(String?) -> Void)
-}
-
-final class MasterMessageAPI: MastetrMessageAPIProtocol {
-    
-    // The default MasterMessageAPI object
-    static var `default`: MasterMessageAPI = {
-        return MasterMessageAPI()
-    }()
-    
-    func send(groupID: String, complection: @escaping (String?) -> Void) {
-        complection("send")
-    }
-    
-    func showDiff(groupID: String, latestMessageID: String, messageCount: Int,
-                  complection: @escaping (String?) -> Void) {
-        
-        complection("showDiff")
-        
-    }
-    
-    func showAll(groupID: String, complection: @escaping (String?) -> Void) {
-        complection("showAllMaster")
-    }
-    
-}
-
 // Local DBの　Message Table更新用
 protocol MessageManagerProtcol {
     
@@ -51,7 +16,7 @@ protocol MessageManagerProtcol {
     //
     
     func sync(groupID: String, completion: @escaping (Bool?) -> Void)
-    func send(groupID: String, complection: @escaping(String?) -> Void)
+    func send(groupID: String, text: String, complection: @escaping(String?) -> Void)
     func showAll(groupID: String) -> String
 }
 
@@ -77,15 +42,18 @@ final class MessageManager: MessageManagerProtcol {
         })
     }
     
-    func send(groupID: String, complection: @escaping (String?) -> Void) {
-        mastetrMessageAPI.send(groupID: "ID", complection: { messageID in
+    func send(groupID: String, text: String, complection: @escaping (String?) -> Void) {
+        
+        // user情報取得
+        let userID: String = "1"
+        // メッセージの送信
+        mastetrMessageAPI.send(userID: userID, groupID: groupID, text: "あいうえお", complection: { messageID in
             guard let messageID = messageID else {
                 return
             }
             
-            print(messageID)
-            
             // LocalDB 更新処理
+            print("LocalDB 更新成功- userID: \(userID), groupID: \(groupID), messageID: \(messageID), text: \(text)")
             complection(messageID)
             
         })

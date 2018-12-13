@@ -17,18 +17,9 @@ class ChatViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let messageManager = MessageManager()
-        
-        messageManager.send(groupID: "ID", complection: { messegeID in
-            print("送信成功:\(messegeID!)")
+        messageManager.send(groupID: "1", text: "こんにちは!!!", complection: { text in
+            print(text!)
         })
-        
-        messageManager.sync(groupID: "ID", completion: { success in
-            if(success!) {
-                print("成功")
-            }
-        })
-        
-        messageManager.showAll(groupID: "ID")
         
     }
 
