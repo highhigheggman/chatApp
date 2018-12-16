@@ -24,10 +24,10 @@ protocol MasterMessageOperatorProtocol {
     
     func send(userID: String, roomID: String, text: String, complection: @escaping(_ messageID: String?) -> Void)
     
-    func showDiff(userID: String, roomID: String, latestMessageID: String, messageCount: Int,
+    func readDiff(userID: String, roomID: String, latestMessageID: String, messageCount: Int,
                   complection: @escaping(String?) -> Void)
     
-    func showAll(roomID: String, complection: @escaping(String?) -> Void)
+    func readAll(roomID: String, complection: @escaping(String?) -> Void)
 }
 
 final class MasterMessageOperator: MasterMessageOperatorProtocol {
@@ -59,12 +59,12 @@ final class MasterMessageOperator: MasterMessageOperatorProtocol {
         complection(messageID)
     }
     
-    func showDiff(userID: String, roomID: String, latestMessageID: String, messageCount: Int, complection: @escaping (String?) -> Void) {
-        complection("showDiff")
+    func readDiff(userID: String, roomID: String, latestMessageID: String, messageCount: Int, complection: @escaping (String?) -> Void) {
+        complection("readDiff")
     }
     
-    func showAll(roomID: String, complection: @escaping (String?) -> Void) {
-        complection("showAllMaster")
+    func readAll(roomID: String, complection: @escaping (String?) -> Void) {
+        complection("readAllMaster")
     }
     
 }

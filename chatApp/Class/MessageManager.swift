@@ -17,7 +17,7 @@ protocol MessageManagerProtcol {
     
     func sync(roomID: String, completion: @escaping (Bool?) -> Void)
     func send(roomID: String, text: String, complection: @escaping(String?) -> Void)
-    func showAll(roomID: String) -> String
+    func readAll(roomID: String) -> String
 }
 
 final class MessageManager: MessageManagerProtcol {
@@ -29,7 +29,7 @@ final class MessageManager: MessageManagerProtcol {
     var mastetrMessageOperator = MasterMessageOperator.default
     
     func sync(roomID: String, completion: @escaping (Bool?) -> Void) {
-        mastetrMessageOperator.showAll(roomID: "ID", complection:{ message in
+        mastetrMessageOperator.readAll(roomID: "ID", complection:{ message in
             
             guard let message = message else {
                 completion(false)
@@ -60,7 +60,7 @@ final class MessageManager: MessageManagerProtcol {
         
     }
     
-    func showAll(roomID: String) -> String {
+    func readAll(roomID: String) -> String {
         print("DBの中身")
         return("DBの中身")
     }
