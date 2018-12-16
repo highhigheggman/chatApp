@@ -17,7 +17,7 @@ class ChatViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let messageManager = MessageManager()
-        messageManager.send(groupID: "1", text: "こんにちは!!!", complection: { text in
+        messageManager.send(roomID: "1", text: "こんにちは!!!", complection: { text in
             print(text!)
         })
         
