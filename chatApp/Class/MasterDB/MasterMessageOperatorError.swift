@@ -1,5 +1,5 @@
 //
-//  MasterMessageAPIError.swift
+//  MasterMessageOperatorError.swift
 //  chatApp
 //
 //  Created by yoshiki-t on 2018/12/13.

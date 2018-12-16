@@ -25,11 +25,11 @@ final class MessageManager: MessageManagerProtcol {
     // Get the default Realm
     //lazy var realm = try! Realm()
     
-    // Get the default MasterMessageAPI
-    var mastetrMessageAPI = MasterMessageAPI.default
+    // Get the default MasterMessageOperator
+    var mastetrMessageOperator = MasterMessageOperator.default
     
     func sync(roomID: String, completion: @escaping (Bool?) -> Void) {
-        mastetrMessageAPI.showAll(roomID: "ID", complection:{ message in
+        mastetrMessageOperator.showAll(roomID: "ID", complection:{ message in
             
             guard let message = message else {
                 completion(false)
@@ -47,7 +47,7 @@ final class MessageManager: MessageManagerProtcol {
         // user情報取得
         let userID: String = "1"
         // メッセージの送信
-        mastetrMessageAPI.send(userID: userID, roomID: roomID, text: "あいうえお", complection: { messageID in
+        mastetrMessageOperator.send(userID: userID, roomID: roomID, text: "あいうえお", complection: { messageID in
             guard let messageID = messageID else {
                 return
             }

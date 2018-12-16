@@ -1,5 +1,5 @@
 //
-//  MasterMessageAPI.swift
+//  MasterMessageOperator.swift
 //  chatApp
 //
 //  Created by yoshiki-t on 2018/12/13.
@@ -18,9 +18,9 @@ struct MasterMessage {
 }
 
 // 仮 DB本体との通信用クラス... 時間があればmysqlか何かに置き換える
-protocol MastetrMessageAPIProtocol {
+protocol MasterMessageOperatorProtocol {
     
-    static var `default` : MastetrMessageAPIProtocol { get }
+    static var `default` : MasterMessageOperatorProtocol { get }
     
     func send(userID: String, roomID: String, text: String, complection: @escaping(_ messageID: String?) -> Void)
     
@@ -30,11 +30,11 @@ protocol MastetrMessageAPIProtocol {
     func showAll(roomID: String, complection: @escaping(String?) -> Void)
 }
 
-final class MasterMessageAPI: MastetrMessageAPIProtocol {
+final class MasterMessageOperator: MasterMessageOperatorProtocol {
     
-    // The default MasterMessageAPI object
-    static var `default`: MastetrMessageAPIProtocol = {
-        return MasterMessageAPI()
+    // The default MasterMessageOperator object
+    static var `default`: MasterMessageOperatorProtocol = {
+        return MasterMessageOperator()
     }()
     
     // 仮 data
