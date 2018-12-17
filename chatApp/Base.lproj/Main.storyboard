@@ -18,17 +18,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ZEZ-LA-QKj" kind="relationship" relationship="rootViewController" id="fKg-Mc-jf8"/>
+                        <segue destination="SYA-su-ML0" kind="relationship" relationship="rootViewController" id="bLP-yp-rz6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeB-vv-kMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1445" y="-32"/>
         </scene>
-        <!--Title-->
+        <!--Chat Page-->
         <scene sceneID="rqC-Sy-wfo">
             <objects>
-                <viewController id="ZEZ-LA-QKj" customClass="ChatViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZEZ-LA-QKj" customClass="ChatPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRj-mB-WLn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,13 +87,97 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="weS-DL-4U3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="W97-45-vwC">
+                    <navigationItem key="navigationItem" title="Chat Page" id="W97-45-vwC">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="eGZ-yj-Mxo"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzH-Ae-GHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-586.39999999999998" y="-35.532233883058474"/>
+            <point key="canvasLocation" x="959" y="-32"/>
+        </scene>
+        <!--UserList-->
+        <scene sceneID="VBC-mr-vY2">
+            <objects>
+                <viewController id="SYA-su-ML0" customClass="UserListPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4qg-X5-lhS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5wN-wJ-RC3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOi-n5-bqN">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lOi-n5-bqN" firstAttribute="width" secondItem="5wN-wJ-RC3" secondAttribute="width" id="CIR-F3-Xx4"/>
+                                    <constraint firstItem="lOi-n5-bqN" firstAttribute="height" secondItem="5wN-wJ-RC3" secondAttribute="height" id="qu0-V2-u4U"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4jF-de-wC2" firstAttribute="centerX" secondItem="5wN-wJ-RC3" secondAttribute="centerX" id="9zi-6k-YLw"/>
+                            <constraint firstItem="4jF-de-wC2" firstAttribute="centerY" secondItem="5wN-wJ-RC3" secondAttribute="centerY" id="N3A-VL-nZe"/>
+                            <constraint firstItem="4jF-de-wC2" firstAttribute="width" secondItem="5wN-wJ-RC3" secondAttribute="width" id="ugU-Tm-FN5"/>
+                            <constraint firstItem="4jF-de-wC2" firstAttribute="height" secondItem="5wN-wJ-RC3" secondAttribute="height" id="yOU-Yn-r0t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4jF-de-wC2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="UserList" id="E4e-fy-Xnh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JUY-IT-mcd"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="kBH-Gv-wuV" kind="show" id="X3g-70-nvi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7NB-UJ-qjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-641" y="-32"/>
+        </scene>
+        <!--RoomList-->
+        <scene sceneID="VbS-1T-WBb">
+            <objects>
+                <viewController id="kBH-Gv-wuV" customClass="UserListPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bRQ-3P-OvM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EHA-0l-zhj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zBp-t2-BZT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zBp-t2-BZT" firstAttribute="width" secondItem="EHA-0l-zhj" secondAttribute="width" id="9LP-Un-6mg"/>
+                                    <constraint firstItem="zBp-t2-BZT" firstAttribute="height" secondItem="EHA-0l-zhj" secondAttribute="height" id="yjI-M5-SVp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c7s-PQ-bGq" firstAttribute="height" secondItem="EHA-0l-zhj" secondAttribute="height" id="5JS-tT-Meo"/>
+                            <constraint firstItem="c7s-PQ-bGq" firstAttribute="width" secondItem="EHA-0l-zhj" secondAttribute="width" id="GWi-zI-5uK"/>
+                            <constraint firstItem="c7s-PQ-bGq" firstAttribute="centerY" secondItem="EHA-0l-zhj" secondAttribute="centerY" id="NWx-YU-XrX"/>
+                            <constraint firstItem="c7s-PQ-bGq" firstAttribute="centerX" secondItem="EHA-0l-zhj" secondAttribute="centerX" id="uyf-b2-J5e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c7s-PQ-bGq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="RoomList" id="bWa-gz-Djp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ebD-Zk-EHN"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ZEZ-LA-QKj" kind="show" id="EyH-ap-ZLq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sE8-AS-WIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="-32"/>
         </scene>
     </scenes>
 </document>

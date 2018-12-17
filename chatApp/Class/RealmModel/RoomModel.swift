@@ -13,6 +13,7 @@ class RoomModel: Object {
     @objc dynamic var roomName = ""
     var users = List<UserModel>()
     var messages = List<MessageModel>()
+    @objc dynamic var time = Date()
     
     // primary key
     override static func primaryKey() -> String? {

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ChatViewController: UIViewController {
+class ChatPageViewController: UIViewController {
     
 
     override func viewDidLoad() {
@@ -20,8 +20,8 @@ class ChatViewController: UIViewController {
         userList.append(UserModel(userID: "1", userName: "Taro"))
         userList.append(UserModel(userID: "2", userName: "Jiro"))
         
-        let chatViewModel = ChatViewModel(room: RoomModel(roomID: "A", roomName: "Taro, Jiro", users: userList))
-        chatViewModel.send()
+        let chatPageModel = ChatPageModel(room: RoomModel(roomID: "A", roomName: "Taro, Jiro", users: userList))
+        chatPageModel.send()
     }
 
 }

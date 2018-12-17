@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ChatViewModel {
+class ChatPageModel {
     
     // Room
     let room: RoomModel

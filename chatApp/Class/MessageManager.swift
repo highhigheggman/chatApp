@@ -31,14 +31,13 @@ final class MessageManager: MessageManagerProtcol {
     }()
     
     func sync(room: RoomModel, completion: @escaping (Bool?) -> Void) {
-        mastetrMessageOperator.readAll(roomID: "ID", complection:{ message in
+        mastetrMessageOperator.readAll(room: room, complection: { messages in
             
-            guard let message = message else {
+            guard let messages = messages else {
                 completion(false)
                 return
             }
             
-            print(message)
             completion(true)
             
         })
@@ -47,15 +46,15 @@ final class MessageManager: MessageManagerProtcol {
     func send(room: RoomModel, text: String, complection: @escaping (String?) -> Void) {
         
         // user情報取得
-        let userID: String = "1"
+        let user = UserModel(userID: "1", userName: "Taro")
         // メッセージの送信
-        mastetrMessageOperator.send(userID: userID, roomID: room.roomID, text: "あいうえお", complection: { messageID in
+        mastetrMessageOperator.write(user: user, room: room, text: "あいうえお", complection: { messageID in
             guard let messageID = messageID else {
                 return
             }
             
             // LocalDB 更新処理
-            print("LocalDB 更新成功- userID: \(userID), roomID: \(room.roomID), messageID: \(messageID), text: \(text)")
+            print("LocalDB 更新成功- userID: \(user.userID), roomID: \(room.roomID), messageID: \(messageID), text: \(text)")
             complection(messageID)
             
         })

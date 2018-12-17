@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // 仮 DB本体
 struct MasterMessage {
@@ -22,12 +23,13 @@ protocol MasterMessageOperatorProtocol {
     
     static var `default` : MasterMessageOperatorProtocol { get }
     
-    func send(userID: String, roomID: String, text: String, complection: @escaping(_ messageID: String?) -> Void)
+    func write(user: UserModel, room: RoomModel, text: String, complection: @escaping(String?) -> Void)
     
-    func readDiff(userID: String, roomID: String, latestMessageID: String, messageCount: Int,
+    // MasterにupdateTime持たせて差分更新出来るように変更
+    func readDiff(user: UserModel, room: RoomModel, latestMessageID: String, messageCount: Int,
                   complection: @escaping(String?) -> Void)
     
-    func readAll(roomID: String, complection: @escaping(String?) -> Void)
+    func readAll(room: RoomModel, complection: @escaping(List<MessageModel>?) -> Void)
 }
 
 final class MasterMessageOperator: MasterMessageOperatorProtocol {
@@ -42,29 +44,39 @@ final class MasterMessageOperator: MasterMessageOperatorProtocol {
     
     init() {
         data.append(MasterMessage(userID: "1", roomID: "1", messageID: UUID().uuidString,text: "おはよう", time: Date()))
-        data.append(MasterMessage(userID: "2", roomID: "1", messageID: UUID().uuidString,text: "こんにちは", time: Date()))
-        data.append(MasterMessage(userID: "1", roomID: "1", messageID: UUID().uuidString,text: "こんばんは", time: Date()))
+        data.append(MasterMessage(userID: "2", roomID: "2", messageID: UUID().uuidString,text: "こんにちは", time: Date()))
+        data.append(MasterMessage(userID: "1", roomID: "2", messageID: UUID().uuidString,text: "こんばんは", time: Date()))
         data.append(MasterMessage(userID: "1", roomID: "1", messageID: UUID().uuidString,text: "おはよう", time: Date()))
         data.append(MasterMessage(userID: "2", roomID: "1", messageID: UUID().uuidString,text: "こんにちは", time: Date()))
     }
     
-    func send(userID: String, roomID: String, text: String, complection: @escaping (String?) -> Void) {
+    func write(user: UserModel, room: RoomModel, text: String, complection: @escaping (String?) -> Void) {
 
         // Insert
         let messageID = UUID().uuidString
         data.append(MasterMessage(userID: "1", roomID: "1", messageID: messageID, text: "おはよう", time: Date()))
         
         // ローカルDBに　MessageIDをリターン
-        print("メッセージ送信成功- userID: \(userID), roomID: \(roomID), text: \(text)")
+        print("メッセージ送信成功- userID: \(user.userID), roomID: \(room.roomID), text: \(text)")
         complection(messageID)
     }
     
-    func readDiff(userID: String, roomID: String, latestMessageID: String, messageCount: Int, complection: @escaping (String?) -> Void) {
+    func readDiff(user: UserModel, room: RoomModel, latestMessageID: String, messageCount: Int, complection: @escaping (String?) -> Void) {
         complection("readDiff")
     }
     
-    func readAll(roomID: String, complection: @escaping (String?) -> Void) {
-        complection("readAllMaster")
+    func readAll(room: RoomModel, complection: @escaping (List<MessageModel>?) -> Void) {
+        // 仮データからRealmのListを生成
+        var result = List<MessageModel>()
+        
+        for (index, message) in self.data.enumerated() {
+            
+            if index == 0 {
+            }
+            
+        }
+        
+        complection(result)
     }
     
 }
