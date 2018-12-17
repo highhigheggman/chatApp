@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ChatViewController: UIViewController {
     
-    //let messageManager: MessageManagerProtcol
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let messageManager = MessageManager()
-        messageManager.send(roomID: "1", text: "こんにちは!!!", complection: { text in
-            print(text!)
-        })
+        // テスト用
+        let userList = List<UserModel>()
+        userList.append(UserModel(userID: "1", userName: "Taro"))
+        userList.append(UserModel(userID: "2", userName: "Jiro"))
         
+        let chatViewModel = ChatViewModel(room: RoomModel(roomID: "A", roomName: "Taro, Jiro", users: userList))
+        chatViewModel.send()
     }
 
 }

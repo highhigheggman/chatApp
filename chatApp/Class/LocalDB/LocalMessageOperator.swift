@@ -11,10 +11,11 @@ import RealmSwift
 
 protocol LocalMessageOperatorProtocol {
     static var `default` : LocalMessageOperatorProtocol { get }
-    func add(userID: String, roomID: String, messageID:String, text: String) -> Bool
-    func read(userID: String, roomID: String, messageID:String) -> String
-    func readAll(userID: String, roomID: String) -> [MessageModel]
+    func add(user: UserModel, room: RoomModel, messageID:String, text: String) -> Bool
+    //func read(user: UserModel, room: RoomModel, messageID:String) -> MessageModel
+    //func readAll(user: UserModel, room: RoomModel) -> [MessageModel]
 }
+
 
 class LocalMessageOperator: LocalMessageOperatorProtocol {
     
@@ -26,16 +27,21 @@ class LocalMessageOperator: LocalMessageOperatorProtocol {
     // Get the default Realm
     lazy var realm = try! Realm()
     
-    func add(userID: String, roomID: String, messageID: String, text: String) -> Bool {
-        <#code#>
+    func add(user: UserModel, room: RoomModel, messageID: String, text: String) -> Bool {
+        
+        
+        try! self.realm.write {
+            let message = MessageModel(user: user, room: room, messageID: messageID, text: text)
+            room.messages.append(message)
+        }
+ 
+        return true
     }
     
-    func read(userID: String, roomID: String, messageID: String) -> String {
-        <#code#>
-    }
+    //func read(user: UserModel, room: RoomModel, messageID: String) -> MessageModel {
+        
+    //}
     
-    func readAll(userID: String, roomID: String) -> [MessageModel] {
-        <#code#>
-    }
-    
+    //func readAll(user: UserModel, room: RoomModel) -> [MessageModel] {
+    //}
 }

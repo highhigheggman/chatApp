@@ -6,4 +6,25 @@
 //  Copyright © 2018 yoshiki-t. All rights reserved.
 //
 
-// 未定
+import RealmSwift
+
+class RoomModel: Object {
+    @objc dynamic var roomID = ""
+    @objc dynamic var roomName = ""
+    var users = List<UserModel>()
+    var messages = List<MessageModel>()
+    
+    // primary key
+    override static func primaryKey() -> String? {
+        return "roomID"
+    }
+    
+    convenience init(roomID: String, roomName: String, users: List<UserModel>) {
+        self.init()
+        
+        self.roomID = roomID
+        self.roomName = roomName
+        self.users = users
+    }
+}
+
