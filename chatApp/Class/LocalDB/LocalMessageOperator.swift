@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 protocol LocalMessageOperatorProtocol {
-    static var `default` : LocalMessageOperatorProtocol { get }
     func write(user: UserModel, room: RoomModel, messageID:String, text: String) -> Bool
     //func read(user: UserModel, room: RoomModel, messageID:String) -> MessageModel
     //func readAll(user: UserModel, room: RoomModel) -> [MessageModel]
@@ -18,11 +17,6 @@ protocol LocalMessageOperatorProtocol {
 
 
 class LocalMessageOperator: LocalMessageOperatorProtocol {
-    
-    // The default LocalMessageOperator object
-    static var `default`: LocalMessageOperatorProtocol = {
-        return LocalMessageOperator()
-    }()
     
     // Get the default Realm
     lazy var realm = try! Realm()

@@ -8,12 +8,13 @@
 
 import Foundation
 
-// Local DBの　Message Table更新用
 protocol MessageManagerProtcol {
     
     static var `default` : MessageManagerProtcol { get }
     
+    func needSync(room: RoomModel, latestedMessageID: String, completion: @escaping (Bool?) -> Void)
     func sync(room: RoomModel, completion: @escaping (Bool?) -> Void)
+    
     func send(room: RoomModel, text: String, complection: @escaping(String?) -> Void)
     func readAll(room: RoomModel) -> String
 }
@@ -21,14 +22,19 @@ protocol MessageManagerProtcol {
 final class MessageManager: MessageManagerProtcol {
     
     // Get the default MessageOperator
-    var mastetrMessageOperator = MasterMessageOperator.default
-    var localMessageOperator = LocalMessageOperator.default
+    var mastetrMessageOperator = MasterMessageOperator()
+    var localMessageOperator = LocalMessageOperator()
     
 
     // The default MessageManager object
     static var `default`: MessageManagerProtcol = {
         return MessageManager()
     }()
+    
+    // 最新のメッセージIDを比較し、同期が必要かを判定する。
+    func needSync(room: RoomModel, latestedMessageID: String, completion: @escaping (Bool?) -> Void) {
+        
+    }
     
     func sync(room: RoomModel, completion: @escaping (Bool?) -> Void) {
         mastetrMessageOperator.readAll(room: room, complection: { messages in

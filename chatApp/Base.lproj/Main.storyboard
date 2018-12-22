@@ -109,6 +109,16 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOi-n5-bqN">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTableViewCell" id="XDg-U8-TK9" customClass="UserTableViewCell" customModule="chatApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XDg-U8-TK9" id="RlD-t7-xb1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -127,9 +137,15 @@
                         <viewLayoutGuide key="safeArea" id="4jF-de-wC2"/>
                     </view>
                     <navigationItem key="navigationItem" title="UserList" id="E4e-fy-Xnh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JUY-IT-mcd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JUY-IT-mcd">
+                            <connections>
+                                <action selector="addTaskButtonTapped:" destination="SYA-su-ML0" id="lsM-aR-guu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="AddButton" destination="JUY-IT-mcd" id="por-13-z8Y"/>
+                        <outlet property="UserListTable" destination="lOi-n5-bqN" id="CP0-aD-aVV"/>
                         <segue destination="kBH-Gv-wuV" kind="show" id="X3g-70-nvi"/>
                     </connections>
                 </viewController>
@@ -169,9 +185,14 @@
                         <viewLayoutGuide key="safeArea" id="c7s-PQ-bGq"/>
                     </view>
                     <navigationItem key="navigationItem" title="RoomList" id="bWa-gz-Djp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ebD-Zk-EHN"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ebD-Zk-EHN">
+                            <connections>
+                                <action selector="add:" destination="kBH-Gv-wuV" id="Arb-qd-KmD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="AddButton" destination="ebD-Zk-EHN" id="6b0-Ew-Yba"/>
                         <segue destination="ZEZ-LA-QKj" kind="show" id="EyH-ap-ZLq"/>
                     </connections>
                 </viewController>

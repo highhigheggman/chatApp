@@ -21,8 +21,6 @@ struct MasterMessage {
 // 仮 DB本体との通信用クラス... 時間があればmysqlか何かに置き換える
 protocol MasterMessageOperatorProtocol {
     
-    static var `default` : MasterMessageOperatorProtocol { get }
-    
     func write(user: UserModel, room: RoomModel, text: String, complection: @escaping(String?) -> Void)
     
     // MasterにupdateTime持たせて差分更新出来るように変更
@@ -33,11 +31,6 @@ protocol MasterMessageOperatorProtocol {
 }
 
 final class MasterMessageOperator: MasterMessageOperatorProtocol {
-    
-    // The default MasterMessageOperator object
-    static var `default`: MasterMessageOperatorProtocol = {
-        return MasterMessageOperator()
-    }()
     
     // 仮 data
     var data = [MasterMessage]()
