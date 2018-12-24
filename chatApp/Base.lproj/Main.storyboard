@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="E2e-VR-XEW">
             <objects>
-                <navigationController id="RhB-8g-ry6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" id="RhB-8g-ry6" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="216-q5-lug">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,7 +28,7 @@
         <!--Chat Page-->
         <scene sceneID="rqC-Sy-wfo">
             <objects>
-                <viewController id="ZEZ-LA-QKj" customClass="ChatPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatPageViewController" id="ZEZ-LA-QKj" customClass="ChatPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRj-mB-WLn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
         <!--UserList-->
         <scene sceneID="VBC-mr-vY2">
             <objects>
-                <viewController storyboardIdentifier="UserListPage" id="SYA-su-ML0" customClass="UserListPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserListPageViewController" id="SYA-su-ML0" customClass="UserListPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4qg-X5-lhS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +144,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="AddButton" destination="JUY-IT-mcd" id="por-13-z8Y"/>
+                        <outlet property="AddButton" destination="JUY-IT-mcd" id="FwV-am-sst"/>
                         <outlet property="UserListTable" destination="lOi-n5-bqN" id="CP0-aD-aVV"/>
                         <segue destination="kBH-Gv-wuV" kind="show" id="X3g-70-nvi"/>
                     </connections>
@@ -156,7 +156,7 @@
         <!--RoomList-->
         <scene sceneID="VbS-1T-WBb">
             <objects>
-                <viewController storyboardIdentifier="RoomListPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBH-Gv-wuV" customClass="UserListPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomListPageViewController" id="kBH-Gv-wuV" customClass="RoomListPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bRQ-3P-OvM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,15 +164,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EHA-0l-zhj">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zBp-t2-BZT">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nvH-uw-pRG">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomTableViewCell" id="oqv-DM-6GA" customClass="RoomTableViewCell" customModule="chatApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oqv-DM-6GA" id="HOB-N2-L1j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="zBp-t2-BZT" firstAttribute="width" secondItem="EHA-0l-zhj" secondAttribute="width" id="9LP-Un-6mg"/>
-                                    <constraint firstItem="zBp-t2-BZT" firstAttribute="height" secondItem="EHA-0l-zhj" secondAttribute="height" id="yjI-M5-SVp"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,7 +198,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="AddButton" destination="ebD-Zk-EHN" id="6b0-Ew-Yba"/>
+                        <outlet property="RoomListTable" destination="nvH-uw-pRG" id="1jb-pI-CgG"/>
                         <segue destination="ZEZ-LA-QKj" kind="show" id="EyH-ap-ZLq"/>
                     </connections>
                 </viewController>
