@@ -30,6 +30,7 @@
 		6F64C60E21CEBAF100446197 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64C60D21CEBAF100446197 /* UserManager.swift */; };
 		6F64C61121CEC9F500446197 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64C60F21CEC9F500446197 /* UserTableViewCell.swift */; };
 		6F64C61221CEC9F500446197 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F64C61021CEC9F500446197 /* UserTableViewCell.xib */; };
+		6F64C61E21D18A3A00446197 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64C61D21D18A3A00446197 /* R.generated.swift */; };
 		6F8FBBCC21C27E8B0042C00B /* ChatPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FBBCB21C27E8B0042C00B /* ChatPageModel.swift */; };
 		6F8FBBCF21C285CB0042C00B /* MasterMessageOperatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FBBCE21C285CB0042C00B /* MasterMessageOperatorError.swift */; };
 		6FDB72FF21C277E3002996A7 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB72FE21C277E3002996A7 /* MessageManager.swift */; };
@@ -66,6 +67,7 @@
 		6F64C60D21CEBAF100446197 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		6F64C60F21CEC9F500446197 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		6F64C61021CEC9F500446197 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		6F64C61D21D18A3A00446197 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		6F8FBBCB21C27E8B0042C00B /* ChatPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageModel.swift; sourceTree = "<group>"; };
 		6F8FBBCE21C285CB0042C00B /* MasterMessageOperatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterMessageOperatorError.swift; sourceTree = "<group>"; };
 		6FDB72FE21C277E3002996A7 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
@@ -114,12 +116,13 @@
 		6F2E426521BBADDD0030A1A1 /* chatApp */ = {
 			isa = PBXGroup;
 			children = (
-				6F2E426621BBADDD0030A1A1 /* AppDelegate.swift */,
 				6F2E428521BBE2890030A1A1 /* Class */,
 				6F2E427C21BBD7C10030A1A1 /* View */,
 				6F8FBBCD21C27E9B0042C00B /* Model */,
 				6F2E427B21BBD6360030A1A1 /* ViewController */,
 				6F2E426A21BBADDD0030A1A1 /* Main.storyboard */,
+				6F64C61D21D18A3A00446197 /* R.generated.swift */,
+				6F2E426621BBADDD0030A1A1 /* AppDelegate.swift */,
 				6F2E427021BBADE00030A1A1 /* Assets.xcassets */,
 				6F2E427221BBADE00030A1A1 /* LaunchScreen.storyboard */,
 				6F2E427521BBADE00030A1A1 /* Info.plist */,
@@ -219,8 +222,8 @@
 			buildPhases = (
 				12CF0B5DB30A8202FCF340EA /* [CP] Check Pods Manifest.lock */,
 				6F2E425F21BBADDD0030A1A1 /* Sources */,
-				6F2E426021BBADDD0030A1A1 /* Frameworks */,
 				6F2E426121BBADDD0030A1A1 /* Resources */,
+				6F2E426021BBADDD0030A1A1 /* Frameworks */,
 				6301BFF91E96C5ED7A406B99 /* [CP] Embed Pods Frameworks */,
 				6F64C60021C8417300446197 /* ShellScript */,
 			);
@@ -358,6 +361,7 @@
 				6F64C60421C8462C00446197 /* RoomListPageViewController.swift in Sources */,
 				6F64C5FF21C6F99700446197 /* LocalMessageOperator.swift in Sources */,
 				6F64C60221C8458000446197 /* UserListPageViewController.swift in Sources */,
+				6F64C61E21D18A3A00446197 /* R.generated.swift in Sources */,
 				6F64C5F921C6F1D000446197 /* RoomModel.swift in Sources */,
 				6FDB72FF21C277E3002996A7 /* MessageManager.swift in Sources */,
 				6F8FBBCC21C27E8B0042C00B /* ChatPageModel.swift in Sources */,

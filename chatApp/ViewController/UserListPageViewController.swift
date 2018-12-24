@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Rswift
 
 class UserListPageViewController: UIViewController {
 
@@ -34,12 +35,10 @@ class UserListPageViewController: UIViewController {
 
 extension UserListPageViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return userListPageModel.count()
     }
     
@@ -49,7 +48,7 @@ extension UserListPageViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as! UserTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.userTableViewCell, for: indexPath)!
         let user = userListPageModel.get(byIndex: indexPath.row)
         
         // Configure the cell
@@ -63,6 +62,14 @@ extension UserListPageViewController: UITableViewDelegate, UITableViewDataSource
         
         // deselect
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // gen next view
+        guard let roomListPageViewController = R.storyboard.main.roomListPage() else {
+            return
+        }
+        
+        // push next view
+        self.navigationController?.pushViewController(roomListPageViewController, animated: true)
 
     }
 }
