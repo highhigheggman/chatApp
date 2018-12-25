@@ -40,6 +40,7 @@
 		6F64C63421D1BD1C00446197 /* AddRoomPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64C63321D1BD1C00446197 /* AddRoomPageModel.swift */; };
 		6F64C63721D1BDC700446197 /* AddRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64C63521D1BDC700446197 /* AddRoomTableViewCell.swift */; };
 		6F64C63821D1BDC700446197 /* AddRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F64C63621D1BDC700446197 /* AddRoomTableViewCell.xib */; };
+		6F64C63A21D281CA00446197 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64C63921D281CA00446197 /* AccountManager.swift */; };
 		6F8FBBCC21C27E8B0042C00B /* ChatPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FBBCB21C27E8B0042C00B /* ChatPageModel.swift */; };
 		6FDB72FF21C277E3002996A7 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB72FE21C277E3002996A7 /* MessageManager.swift */; };
 		6FDB730121C27863002996A7 /* MasterMessageOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDB730021C27863002996A7 /* MasterMessageOperator.swift */; };
@@ -85,6 +86,7 @@
 		6F64C63321D1BD1C00446197 /* AddRoomPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPageModel.swift; sourceTree = "<group>"; };
 		6F64C63521D1BDC700446197 /* AddRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomTableViewCell.swift; sourceTree = "<group>"; };
 		6F64C63621D1BDC700446197 /* AddRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRoomTableViewCell.xib; sourceTree = "<group>"; };
+		6F64C63921D281CA00446197 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		6F8FBBCB21C27E8B0042C00B /* ChatPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageModel.swift; sourceTree = "<group>"; };
 		6FDB72FE21C277E3002996A7 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		6FDB730021C27863002996A7 /* MasterMessageOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterMessageOperator.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				6F64C60D21CEBAF100446197 /* UserManager.swift */,
 				6F64C60B21CEBA0200446197 /* RoomManager.swift */,
 				6FDB72FE21C277E3002996A7 /* MessageManager.swift */,
+				6F64C63921D281CA00446197 /* AccountManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				6F64C60E21CEBAF100446197 /* UserManager.swift in Sources */,
 				6F64C63121D1BA2300446197 /* AddRoomPageViewController.swift in Sources */,
 				6F2E426721BBADDD0030A1A1 /* AppDelegate.swift in Sources */,
+				6F64C63A21D281CA00446197 /* AccountManager.swift in Sources */,
 				6F64C63421D1BD1C00446197 /* AddRoomPageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

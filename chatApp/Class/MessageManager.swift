@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol MessageManagerProtcol {
     
     static var `default` : MessageManagerProtcol { get }
     
-    func needSync(room: RoomModel, latestedMessageID: String, completion: @escaping (Bool?) -> Void)
-    func sync(room: RoomModel, completion: @escaping (Bool?) -> Void)
+    func needSync(room: RoomModel, completion: @escaping (Bool) -> Void)
+    func sync(room: RoomModel, completion: @escaping (Bool) -> Void)
     
-    func send(room: RoomModel, text: String, complection: @escaping(String?) -> Void)
-    func readAll(room: RoomModel) -> String
+    func write(room: RoomModel, user: UserModel, text: String, complection: @escaping(Bool) -> Void)
+    func read(room: RoomModel) -> List<MessageModel>
 }
 
 final class MessageManager: MessageManagerProtcol {
@@ -24,7 +25,6 @@ final class MessageManager: MessageManagerProtcol {
     // Get the default MessageOperator
     var mastetrMessageOperator = MasterMessageOperator()
     var localMessageOperator = LocalMessageOperator()
-    
 
     // The default MessageManager object
     static var `default`: MessageManagerProtcol = {
@@ -32,11 +32,22 @@ final class MessageManager: MessageManagerProtcol {
     }()
     
     // 最新のメッセージIDを比較し、同期が必要かを判定する。
-    func needSync(room: RoomModel, latestedMessageID: String, completion: @escaping (Bool?) -> Void) {
+    func needSync(room: RoomModel, completion: @escaping (Bool) -> Void) {
         
+        // Master
+        let MasterLatestedID = mastetrMessageOperator.data[mastetrMessageOperator.data.endIndex].messageID
+        
+        // Local
+        let LocalLatestedID = room.messages[room.messages.endIndex].messageID
+        
+        if MasterLatestedID != LocalLatestedID {
+            completion(false)
+        } else {
+            completion(false)
+        }
     }
     
-    func sync(room: RoomModel, completion: @escaping (Bool?) -> Void) {
+    func sync(room: RoomModel, completion: @escaping (Bool) -> Void) {
         mastetrMessageOperator.readAll(room: room, complection: { messages in
             
             guard let messages = messages else {
@@ -44,32 +55,35 @@ final class MessageManager: MessageManagerProtcol {
                 return
             }
             
+            // 同期処理
+            
+            
             completion(true)
             
         })
     }
     
-    func send(room: RoomModel, text: String, complection: @escaping (String?) -> Void) {
+    func write(room: RoomModel, user: UserModel, text: String, complection: @escaping (Bool) -> Void) {
         
-        // user情報取得
-        let user = UserModel(userID: "1", userName: "Taro")
         // メッセージの送信
-        mastetrMessageOperator.write(user: user, room: room, text: "あいうえお", complection: { messageID in
+        mastetrMessageOperator.write(user: user, room: room, text: text, complection: { messageID in
             guard let messageID = messageID else {
+                complection(false)
                 return
             }
             
             // LocalDB 更新処理
             print("LocalDB 更新成功- userID: \(user.userID), roomID: \(room.roomID), messageID: \(messageID), text: \(text)")
-            complection(messageID)
+            
+            self.localMessageOperator.write(user: user, room: room, messageID: messageID, text: text)
+            complection(true)
             
         })
         
     }
     
-    func readAll(room: RoomModel) -> String {
-        print("DBの中身")
-        return("DBの中身")
+    func read(room: RoomModel) -> List<MessageModel> {
+        return self.localMessageOperator.readAll(room: room)
     }
     
     

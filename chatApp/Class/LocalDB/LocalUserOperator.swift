@@ -20,6 +20,10 @@ class LocalUserOperator: LocalUserOperatorProtocol {
     // Get the default Realm
     lazy var realm = try! Realm()
     
+    init() {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+    
     func write(userID: String, userName: String) {
         
         let userModel = UserModel(userID: userID, userName: userName)

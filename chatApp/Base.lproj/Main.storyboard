@@ -39,6 +39,24 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="leU-sl-NUy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="696.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatTableViewCell" id="K3o-fZ-ZjH" customClass="MyChatTableViewCell" customModule="chatApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K3o-fZ-ZjH" id="MA2-gK-jGw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="YourChatTableViewCell" id="H2b-wq-tcE" customClass="YourChatTableViewCell" customModule="chatApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H2b-wq-tcE" id="ivq-DT-dJg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQs-fD-Nf8" userLabel="MessageView">
                                         <rect key="frame" x="0.0" y="696.5" width="414" height="77.5"/>
@@ -87,9 +105,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="weS-DL-4U3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat Page" id="W97-45-vwC">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="eGZ-yj-Mxo"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Chat Page" id="W97-45-vwC"/>
+                    <connections>
+                        <outlet property="ChatTable" destination="leU-sl-NUy" id="1PK-Bo-aaw"/>
+                        <outlet property="SendMessageButton" destination="OmU-zo-tQj" id="FIr-w9-Qyl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzH-Ae-GHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

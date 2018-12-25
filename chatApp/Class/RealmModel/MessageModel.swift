@@ -10,9 +10,9 @@ import RealmSwift
 
 class MessageModel: Object {
     @objc dynamic var user: UserModel?
-    @objc dynamic var messageID: String = ""
-    @objc dynamic var text: String = ""
-    @objc dynamic var time: Date = Date()
+    @objc dynamic var messageID = ""
+    @objc dynamic var text = ""
+    @objc dynamic var time = Date()
     
     // primary key
     override static func primaryKey() -> String? {
