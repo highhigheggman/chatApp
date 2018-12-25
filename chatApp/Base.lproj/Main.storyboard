@@ -146,7 +146,7 @@
                     <connections>
                         <outlet property="AddButton" destination="JUY-IT-mcd" id="FwV-am-sst"/>
                         <outlet property="UserListTable" destination="lOi-n5-bqN" id="CP0-aD-aVV"/>
-                        <segue destination="kBH-Gv-wuV" kind="show" id="X3g-70-nvi"/>
+                        <segue destination="kBH-Gv-wuV" kind="show" id="oui-xo-u70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NB-UJ-qjj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,21 +10,51 @@ import UIKit
 
 class RoomListPageViewController: UIViewController {
 
+    @IBOutlet weak var RoomListTable: UITableView!
+    
+    let roomListPageModel = RoomListPageModel()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // TableView
+        RoomListTable.dataSource = self
+        RoomListTable.delegate = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension RoomListPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return roomListPageModel.count()
+    }
+    
+    // return cell height (px)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.roomTableViewCell, for: indexPath)!
+        let room = roomListPageModel.get(byIndex: indexPath.row)
+        
+        // Configure the cell
+        cell.RoomNameLabel.text = room.roomName
+        
+        return cell
+    }
+    
+    // cell tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // deselect
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+}
+
