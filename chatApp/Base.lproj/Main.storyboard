@@ -147,6 +147,7 @@
                         <outlet property="AddButton" destination="JUY-IT-mcd" id="FwV-am-sst"/>
                         <outlet property="UserListTable" destination="lOi-n5-bqN" id="CP0-aD-aVV"/>
                         <segue destination="kBH-Gv-wuV" kind="show" id="oui-xo-u70"/>
+                        <segue destination="SZ8-jL-zKW" kind="show" id="NuJ-DN-F1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NB-UJ-qjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,11 +194,12 @@
                     <navigationItem key="navigationItem" title="RoomList" id="bWa-gz-Djp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ebD-Zk-EHN">
                             <connections>
-                                <action selector="add:" destination="kBH-Gv-wuV" id="Arb-qd-KmD"/>
+                                <action selector="addButtonTapped:" destination="kBH-Gv-wuV" id="2R1-k1-enX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="AddButton" destination="ebD-Zk-EHN" id="zGy-cg-l7f"/>
                         <outlet property="RoomListTable" destination="nvH-uw-pRG" id="1jb-pI-CgG"/>
                         <segue destination="ZEZ-LA-QKj" kind="show" id="EyH-ap-ZLq"/>
                     </connections>
@@ -205,6 +207,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE8-AS-WIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="158" y="-32"/>
+        </scene>
+        <!--AddRoom-->
+        <scene sceneID="2Iz-a4-gjF">
+            <objects>
+                <viewController storyboardIdentifier="AddRoomPageViewController" id="SZ8-jL-zKW" userLabel="AddRoom" customClass="AddRoomPageViewController" customModule="chatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hd6-7E-eZg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i3N-4c-RPR">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-Na-eKS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddRoomTableViewCell" id="N9M-S5-aDx" customClass="AddRoomTableViewCell" customModule="chatApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N9M-S5-aDx" id="g0b-4V-3sl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NWV-Na-eKS" firstAttribute="height" secondItem="i3N-4c-RPR" secondAttribute="height" id="bZS-2R-DKY"/>
+                                    <constraint firstItem="NWV-Na-eKS" firstAttribute="width" secondItem="i3N-4c-RPR" secondAttribute="width" id="eMN-zI-ifO"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dNu-EE-suK" firstAttribute="centerY" secondItem="i3N-4c-RPR" secondAttribute="centerY" id="JZI-W5-YsG"/>
+                            <constraint firstItem="dNu-EE-suK" firstAttribute="centerX" secondItem="i3N-4c-RPR" secondAttribute="centerX" id="aEh-4K-O9d"/>
+                            <constraint firstItem="dNu-EE-suK" firstAttribute="height" secondItem="i3N-4c-RPR" secondAttribute="height" id="qta-a3-8l5"/>
+                            <constraint firstItem="dNu-EE-suK" firstAttribute="width" secondItem="i3N-4c-RPR" secondAttribute="width" id="v58-n7-Cbn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dNu-EE-suK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Check Room Member" id="sqj-9R-Jog">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Gg3-ON-9z9">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="SZ8-jL-zKW" id="d0E-Tp-Lba"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="UserListTable" destination="NWV-Na-eKS" id="K8M-wk-cW4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbK-E4-2Gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="-713"/>
         </scene>
     </scenes>
 </document>
