@@ -18,8 +18,8 @@ class UserListPageModel {
         self.users = userManager.read()
     }
     
-    func write(userID: String, userName: String) {
-        userManager.write(userID: userID, userName: userName)
+    func write(userName: String) {
+        userManager.write(userID: NSUUID().uuidString, userName: userName)
     }
     
     func sync() {

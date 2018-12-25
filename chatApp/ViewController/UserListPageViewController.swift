@@ -17,7 +17,7 @@ class UserListPageViewController: UIViewController {
     let userListPageModel = UserListPageModel()
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
-        userListPageModel.write(userID: NSUUID().uuidString, userName: NSUUID().uuidString)
+        userListPageModel.write(userName: "User\(userListPageModel.count() + 1)")
         self.UserListTable.reloadData()
     }
     
@@ -64,7 +64,7 @@ extension UserListPageViewController: UITableViewDelegate, UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
         
         // gen next view
-        guard let roomListPageViewController = R.storyboard.main.roomListPage() else {
+        guard let roomListPageViewController = R.storyboard.main.roomListPageViewController() else {
             return
         }
         

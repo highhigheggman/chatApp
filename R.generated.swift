@@ -16,8 +16,10 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
+    /// Nib `AddRoomTableViewCell`.
+    static let addRoomTableViewCell = _R.nib._AddRoomTableViewCell()
     /// Nib `MyChatTableViewCell`.
     static let myChatTableViewCell = _R.nib._MyChatTableViewCell()
     /// Nib `RoomTableViewCell`.
@@ -26,6 +28,12 @@ struct R: Rswift.Validatable {
     static let userTableViewCell = _R.nib._UserTableViewCell()
     /// Nib `YourChatTableViewCell`.
     static let yourChatTableViewCell = _R.nib._YourChatTableViewCell()
+    
+    /// `UINib(name: "AddRoomTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.addRoomTableViewCell) instead")
+    static func addRoomTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addRoomTableViewCell)
+    }
     
     /// `UINib(name: "MyChatTableViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.myChatTableViewCell) instead")
@@ -51,6 +59,10 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.yourChatTableViewCell)
     }
     
+    static func addRoomTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AddRoomTableViewCell? {
+      return R.nib.addRoomTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddRoomTableViewCell
+    }
+    
     static func myChatTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MyChatTableViewCell? {
       return R.nib.myChatTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MyChatTableViewCell
     }
@@ -70,8 +82,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AddRoomTableViewCell`.
+    static let addRoomTableViewCell: Rswift.ReuseIdentifier<AddRoomTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddRoomTableViewCell")
     /// Reuse identifier `RoomTableViewCell`.
     static let roomTableViewCell: Rswift.ReuseIdentifier<RoomTableViewCell> = Rswift.ReuseIdentifier(identifier: "RoomTableViewCell")
     /// Reuse identifier `UserTableViewCell`.
@@ -119,6 +133,17 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _AddRoomTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "AddRoomTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AddRoomTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddRoomTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _MyChatTableViewCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "MyChatTableViewCell"
@@ -192,12 +217,17 @@ struct _R: Rswift.Validatable {
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
+      let addRoomPageViewController = StoryboardViewControllerResource<AddRoomPageViewController>(identifier: "AddRoomPageViewController")
       let bundle = R.hostingBundle
       let chatPageViewController = StoryboardViewControllerResource<ChatPageViewController>(identifier: "ChatPageViewController")
       let name = "Main"
       let navigationController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "navigationController")
       let roomListPageViewController = StoryboardViewControllerResource<RoomListPageViewController>(identifier: "RoomListPageViewController")
       let userListPageViewController = StoryboardViewControllerResource<UserListPageViewController>(identifier: "UserListPageViewController")
+      
+      func addRoomPageViewController(_: Void = ()) -> AddRoomPageViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addRoomPageViewController)
+      }
       
       func chatPageViewController(_: Void = ()) -> ChatPageViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chatPageViewController)
@@ -218,6 +248,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, *) {
         }
+        if _R.storyboard.main().addRoomPageViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addRoomPageViewController' could not be loaded from storyboard 'Main' as 'AddRoomPageViewController'.") }
         if _R.storyboard.main().chatPageViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chatPageViewController' could not be loaded from storyboard 'Main' as 'ChatPageViewController'.") }
         if _R.storyboard.main().roomListPageViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'roomListPageViewController' could not be loaded from storyboard 'Main' as 'RoomListPageViewController'.") }
         if _R.storyboard.main().userListPageViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userListPageViewController' could not be loaded from storyboard 'Main' as 'UserListPageViewController'.") }

@@ -18,10 +18,6 @@ class RoomListPageModel {
         self.rooms = roomManager.read()
     }
     
-    func write(roomID: String, roomName: String, users: List<UserModel>) {
-        roomManager.write(roomID: roomID, roomName: roomName, users: users)
-    }
-    
     func sync() {
         if (roomManager.needSync()) {
             if (!roomManager.sync()) {

@@ -10,7 +10,18 @@ import UIKit
 
 class RoomListPageViewController: UIViewController {
 
+    @IBOutlet weak var AddButton: UIBarButtonItem!
     @IBOutlet weak var RoomListTable: UITableView!
+    
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        // gen next view
+        guard let addRoomPageViewController = R.storyboard.main.addRoomPageViewController() else {
+            return
+        }
+        
+        // push next view
+        self.navigationController?.pushViewController(addRoomPageViewController, animated: true)
+    }
     
     let roomListPageModel = RoomListPageModel()
 
@@ -21,6 +32,12 @@ class RoomListPageViewController: UIViewController {
         // TableView
         RoomListTable.dataSource = self
         RoomListTable.delegate = self
+        RoomListTable.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RoomListTable.reloadData()
     }
 
 }
