@@ -19,7 +19,7 @@ protocol UserManagerProtcol {
     func read() -> Results<UserModel>
 }
 
-class UserManager: UserManagerProtcol {
+final class UserManager: UserManagerProtcol {
     
     // The default MessageManager object
     static var `default`: UserManagerProtcol = {

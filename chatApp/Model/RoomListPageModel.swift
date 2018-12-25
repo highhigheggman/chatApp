@@ -11,7 +11,8 @@ import RealmSwift
 
 class RoomListPageModel {
     
-    var rooms: Results<RoomModel>!
+    
+    var rooms: Results<RoomModel>
     let roomManager = RoomManager.default
     
     init() {

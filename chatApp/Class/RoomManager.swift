@@ -19,7 +19,7 @@ protocol RoomManagerProtcol {
     func read() -> Results<RoomModel>
 }
 
-class RoomManager: RoomManagerProtcol {
+final class RoomManager: RoomManagerProtcol {
     
     static var `default`: RoomManagerProtcol = {
         return RoomManager()

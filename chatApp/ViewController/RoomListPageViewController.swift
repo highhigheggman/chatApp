@@ -25,7 +25,6 @@ class RoomListPageViewController: UIViewController {
     
     let roomListPageModel = RoomListPageModel()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,6 +70,16 @@ extension RoomListPageViewController: UITableViewDelegate, UITableViewDataSource
         
         // deselect
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // gen next page
+        guard let chatPageViewController = R.storyboard.main.chatPageViewController() else {
+            return
+        }
+        
+        chatPageViewController.chatPageModel = ChatPageModel(room: self.roomListPageModel.get(byIndex: indexPath.row))
+        
+        // push next view
+        self.navigationController?.pushViewController(chatPageViewController, animated: true)
         
     }
 }

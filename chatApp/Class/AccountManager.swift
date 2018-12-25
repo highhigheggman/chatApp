@@ -16,11 +16,11 @@ protocol AccountManagerProtocol {
     var user: UserModel? { get }
 }
 
-class AccountManager {
+final class AccountManager : AccountManagerProtocol {
     
     private var userModel: UserModel?
     
-    static var `default` : AccountManager = {
+    static var `default` : AccountManagerProtocol = {
         return AccountManager()
     }()
     

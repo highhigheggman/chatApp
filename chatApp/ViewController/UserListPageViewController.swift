@@ -63,6 +63,9 @@ extension UserListPageViewController: UITableViewDelegate, UITableViewDataSource
         // deselect
         tableView.deselectRow(at: indexPath, animated: true)
         
+        // set account
+        AccountManager.default.setUserModel(userModel: self.userListPageModel.get(byIndex: indexPath.row))
+        
         // gen next view
         guard let roomListPageViewController = R.storyboard.main.roomListPageViewController() else {
             return
