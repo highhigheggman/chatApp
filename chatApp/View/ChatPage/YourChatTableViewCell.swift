@@ -24,3 +24,9 @@ class YourChatTableViewCell: UITableViewCell {
     }
     
 }
+
+extension YourChatTableViewCell: ChatCellProtocol {
+    func setTextLabel(text: String) {
+        self.TextLabel.text = text
+    }
+}

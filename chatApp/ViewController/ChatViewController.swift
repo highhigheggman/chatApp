@@ -13,9 +13,22 @@ class ChatPageViewController: UIViewController {
    
     @IBOutlet weak var ChatTable: UITableView!
     @IBOutlet weak var SendMessageButton: UIButton!
+    @IBOutlet weak var InputField: UITextField!
     
     var chatPageModel: ChatPageModel? = nil
-
+    
+    @IBAction func SendMessageButtonTapped(_ sender: Any) {
+        guard let inputText = InputField.text else {
+            return
+        }
+        
+        chatPageModel!.write(text: inputText)
+        
+        // clear
+        InputField.text = ""
+        ChatTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +39,8 @@ class ChatPageViewController: UIViewController {
         // TableView
         ChatTable.dataSource = self
         ChatTable.delegate = self
+        ChatTable.separatorColor = UIColor.clear
+        ChatTable.allowsSelection = false
         ChatTable.register(UINib(nibName: "MyChatTableViewCell", bundle: nil), forCellReuseIdentifier: "MyChatTableViewCell")
         ChatTable.register(UINib(nibName: "YourChatTableViewCell", bundle: nil), forCellReuseIdentifier: "YourChatTableViewCell")
 
@@ -48,24 +63,24 @@ extension ChatPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: (UITableViewCell & ChatCellProtocol)
     
-        
+        // ToDo:
         let message = self.chatPageModel?.get(byIndex: indexPath.row)
+            ?? MessageModel(user: UserModel(userID: "err", userName: "err"), messageID: NSUUID().uuidString, text: "err")
         
-        if self.chatPageModel?.isMyMessage(message: message!) ?? false {
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myChatTableViewCell, for: indexPath)!
-            
-            return cell
+        if self.chatPageModel!.isMyMessage(message: message) {
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myChatTableViewCell, for: indexPath)!
 
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.yourChatTableViewCell, for: indexPath)!
-
-            return cell
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.yourChatTableViewCell, for: indexPath)!
         }
         
-        
         // Configure the cell
+        cell.setTextLabel(text: message.text)
         
+        return cell
     }
     
     // cell tapped

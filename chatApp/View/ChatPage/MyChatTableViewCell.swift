@@ -10,7 +10,7 @@ import UIKit
 
 class MyChatTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var TextLable: UITextView!
+    @IBOutlet weak var TextLabel: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +23,10 @@ class MyChatTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension MyChatTableViewCell: ChatCellProtocol {
+    func setTextLabel(text: String) {
+        self.TextLabel.text = text
+    }
 }
