@@ -60,9 +60,9 @@ final class MasterMessageOperator: MasterMessageOperatorProtocol {
     
     func readAll(room: RoomModel, complection: @escaping (List<MessageModel>?) -> Void) {
         // 仮データからRealmのListを生成
-        var result = List<MessageModel>()
+        let result = List<MessageModel>()
         
-        for (index, message) in self.data.enumerated() {
+        for (index, _) in self.data.enumerated() {
             
             if index == 0 {
             }

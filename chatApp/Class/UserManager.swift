@@ -16,6 +16,7 @@ protocol UserManagerProtcol {
     func sync() -> Bool
     
     func write(userID: String, userName: String)
+    func join(room: RoomModel, user: UserModel)
     func read() -> Results<UserModel>
 }
 
@@ -39,6 +40,10 @@ final class UserManager: UserManagerProtcol {
     
     func write(userID: String, userName: String) {
         localUserOperator.write(userID: userID, userName: userName)
+    }
+    
+    func join(room: RoomModel, user: UserModel) {
+        localUserOperator.joinRoom(room: room, user: user)
     }
     
     func read() -> Results<UserModel> {

@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol LocalUserOperatorProtocol {
     func write(userID: String, userName: String) -> Void
+    func joinRoom(room: RoomModel, user: UserModel) -> Void
     func readAll() -> Results<UserModel>
 
 }
@@ -32,6 +33,15 @@ class LocalUserOperator: LocalUserOperatorProtocol {
             realm.add(userModel)
         }
     }
+    
+    func joinRoom(room: RoomModel, user: UserModel) {
+        try! realm.write() {
+            if !(user.rooms.contains(room)) {
+                user.rooms.append(room)
+            }
+        }
+    }
+    
     
     func readAll() -> Results<UserModel> {
         let userModels = realm.objects(UserModel.self)

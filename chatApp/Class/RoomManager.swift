@@ -15,8 +15,9 @@ protocol RoomManagerProtcol {
     func needSync() -> Bool
     func sync() -> Bool
     
-    func write(roomID: String, roomName: String, users: List<UserModel>)
-    func read() -> Results<RoomModel>
+    func write(roomID: String, roomName: String, users: List<UserModel>) -> RoomModel
+    func read(user: UserModel) -> List<RoomModel>
+    func readAll() -> Results<RoomModel>
 }
 
 final class RoomManager: RoomManagerProtcol {
@@ -36,14 +37,20 @@ final class RoomManager: RoomManagerProtcol {
         return true
     }
     
-    func write(roomID: String, roomName: String, users: List<UserModel>) {
-        localRoomOperator.write(roomID: roomID, roomName: roomName, users: users)
+    func write(roomID: String, roomName: String, users: List<UserModel>) ->RoomModel {
+        let room = localRoomOperator.write(roomID: roomID, roomName: roomName, users: users)
+        
+        return room
     }
     
-    func read() -> Results<RoomModel> {
-        let rooms = localRoomOperator.readAll()
+    func read(user: UserModel) -> List<RoomModel> {
+        let rooms = localRoomOperator.read(user: user)
         return rooms
     }
     
+    func readAll() -> Results<RoomModel> {
+        let rooms = localRoomOperator.readAll()
+        return rooms
+    }
     
 }

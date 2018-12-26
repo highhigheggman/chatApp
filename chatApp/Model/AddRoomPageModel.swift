@@ -22,7 +22,13 @@ class AddRoomPageModel {
     }
     
     func write(roomName: String) {
-        roomManager.write(roomID: NSUUID().uuidString, roomName: roomName, users: self.selectedUsers)
+        // Roomを追加
+        let room = roomManager.write(roomID: NSUUID().uuidString, roomName: roomName, users: self.selectedUsers)
+        
+        // UserにRoomへの参照を追加
+        for user in selectedUsers {
+            userManager.join(room: room, user: user)
+        }
     }
     
     func addSelectedUsers(index: Int) {
@@ -39,7 +45,7 @@ class AddRoomPageModel {
     
     func roomCount() -> Int {
         // ToDo: 直す
-        return roomManager.read().count
+        return roomManager.readAll().count
     }
     
 }

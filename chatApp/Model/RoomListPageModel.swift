@@ -12,11 +12,13 @@ import RealmSwift
 class RoomListPageModel {
     
     
-    var rooms: Results<RoomModel>
+    var rooms: List<RoomModel>
     let roomManager = RoomManager.default
+    let accountManager = AccountManager.default
     
     init() {
-        self.rooms = roomManager.read()
+        // ToDo: 強制アンラップを修正
+        self.rooms = roomManager.read(user: accountManager.user!)
     }
     
     func sync() {

@@ -9,11 +9,14 @@
 import RealmSwift
 
 class RoomModel: Object {
+    // ToDo: 直接参照を持たせる
     @objc dynamic var roomID = ""
     @objc dynamic var roomName = ""
+    @objc dynamic var time = Date()
+    
+    // relation
     var users = List<UserModel>()
     var messages = List<MessageModel>()
-    @objc dynamic var time = Date()
     
     // primary key
     override static func primaryKey() -> String? {

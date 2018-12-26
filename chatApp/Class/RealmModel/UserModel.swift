@@ -12,6 +12,8 @@ class UserModel: Object {
     @objc dynamic var userID: String = ""
     @objc dynamic var userName: String = ""
     
+    var rooms = List<RoomModel>()
+    
     // primary key
     override static func primaryKey() -> String? {
         return "userID"

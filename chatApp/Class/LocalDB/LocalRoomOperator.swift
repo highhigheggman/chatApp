@@ -10,7 +10,8 @@ import Foundation
 import RealmSwift
 
 protocol LocalRoomOperatorProtocol {
-    func write(roomID: String, roomName: String, users: List<UserModel>) -> Void
+    func write(roomID: String, roomName: String, users: List<UserModel>) -> RoomModel
+    func read(user: UserModel) ->List<RoomModel>
     func readAll() -> Results<RoomModel>
     
 }
@@ -20,13 +21,19 @@ class LocalRoomOperator: LocalRoomOperatorProtocol {
     // Get the default Realm
     lazy var realm = try! Realm()
     
-    func write(roomID: String, roomName: String, users: List<UserModel>) {
+    func write(roomID: String, roomName: String, users: List<UserModel>) -> RoomModel {
         
         let roomModel = RoomModel(roomID: roomID, roomName: roomName, users: users)
         
         try! realm.write() {
             realm.add(roomModel)
         }
+        
+        return roomModel
+    }
+    
+    func read(user: UserModel) ->List<RoomModel> {
+        return user.rooms
     }
     
     func readAll() -> Results<RoomModel> {
@@ -34,7 +41,5 @@ class LocalRoomOperator: LocalRoomOperatorProtocol {
         
         return roomModels
     }
-    
-    
-    
+
 }
