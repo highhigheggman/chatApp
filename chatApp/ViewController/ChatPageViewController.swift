@@ -15,7 +15,11 @@ class ChatPageViewController: UIViewController {
     @IBOutlet weak var SendMessageButton: UIButton!
     @IBOutlet weak var InputField: UITextField!
     
+    // ToDo: レイヤー分け
     var chatPageModel: ChatPageModel? = nil
+    
+    private var viewModel: ChatPageViewModel!
+    
     
     @IBAction func SendMessageButtonTapped(_ sender: Any) {
         guard let inputText = InputField.text else {
@@ -36,13 +40,16 @@ class ChatPageViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
         
-        // TableView
+        // TableView Setting
         ChatTable.dataSource = self
         ChatTable.delegate = self
         ChatTable.separatorStyle = .none
         ChatTable.allowsSelection = false
         ChatTable.register(UINib(nibName: "MyChatTableViewCell", bundle: nil), forCellReuseIdentifier: "MyChatTableViewCell")
         ChatTable.register(UINib(nibName: "YourChatTableViewCell", bundle: nil), forCellReuseIdentifier: "YourChatTableViewCell")
+        
+        // Notification
+        addNotification()
 
     }
 
@@ -92,4 +99,21 @@ extension ChatPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension ChatPageViewController {
+    
+    fileprivate func addNotification() {
+        
+        NotificationCenter.default.reactive.notifications(forName: UIResponder.keyboardWillShowNotification).observe { _ in
+            print("show Key")
+        }
+        
+        NotificationCenter.default.reactive.notifications(forName: UIResponder.keyboardWillHideNotification).observe { _ in
+            print("hide key")
+        }
+    }
+    
+    fileprivate func removeNotification() {
+        
+    }
+}
 
