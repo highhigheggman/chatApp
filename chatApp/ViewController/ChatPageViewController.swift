@@ -39,7 +39,7 @@ class ChatPageViewController: UIViewController {
         // TableView
         ChatTable.dataSource = self
         ChatTable.delegate = self
-        ChatTable.separatorColor = UIColor.clear
+        ChatTable.separatorStyle = .none
         ChatTable.allowsSelection = false
         ChatTable.register(UINib(nibName: "MyChatTableViewCell", bundle: nil), forCellReuseIdentifier: "MyChatTableViewCell")
         ChatTable.register(UINib(nibName: "YourChatTableViewCell", bundle: nil), forCellReuseIdentifier: "YourChatTableViewCell")

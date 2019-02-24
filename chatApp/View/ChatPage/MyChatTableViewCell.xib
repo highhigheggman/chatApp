@@ -11,29 +11,60 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="MyChatTableViewCell" customModule="chatApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="MyChatTableViewCell" customModule="chatApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="49.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-hh-IUp">
-                        <rect key="frame" x="118" y="3" width="282" height="42"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.33894653195216029" green="0.59877864441531647" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q17-Kj-w3W" userLabel="Vertical Stack">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWh-WI-dpb" userLabel="Horizontal Stack">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-R3-jC6" userLabel="Dummy View">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="79.5"/>
+                                        <color key="backgroundColor" red="0.52071345840000005" green="1" blue="0.69136595040000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-hh-IUp">
+                                        <rect key="frame" x="120" y="0.0" width="280" height="79.5"/>
+                                        <color key="backgroundColor" red="0.33894653195216029" green="0.59877864441531647" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kWw-R3-jC6" firstAttribute="height" secondItem="DWh-WI-dpb" secondAttribute="height" id="D69-Dg-ERo"/>
+                                    <constraint firstItem="kWw-R3-jC6" firstAttribute="width" secondItem="DWh-WI-dpb" secondAttribute="width" multiplier="0.3" id="dtw-pJ-RM9"/>
+                                    <constraint firstItem="Yfj-hh-IUp" firstAttribute="height" secondItem="DWh-WI-dpb" secondAttribute="height" id="lIe-wU-x51"/>
+                                    <constraint firstItem="Yfj-hh-IUp" firstAttribute="width" secondItem="DWh-WI-dpb" secondAttribute="width" multiplier="0.7" id="rDX-OY-PEu"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DWh-WI-dpb" firstAttribute="height" secondItem="q17-Kj-w3W" secondAttribute="height" id="7Pd-pg-9xr"/>
+                            <constraint firstItem="DWh-WI-dpb" firstAttribute="width" secondItem="q17-Kj-w3W" secondAttribute="width" id="h7h-hQ-f5V"/>
+                            <constraint firstItem="DWh-WI-dpb" firstAttribute="centerY" secondItem="q17-Kj-w3W" secondAttribute="centerY" id="von-Sv-nrv"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" red="0.52071345840000005" green="1" blue="0.69136595040000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="q17-Kj-w3W" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MyU-ab-4d0"/>
+                    <constraint firstItem="q17-Kj-w3W" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OBC-Y8-jIY"/>
+                    <constraint firstItem="q17-Kj-w3W" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="cX6-wo-Off"/>
+                    <constraint firstItem="q17-Kj-w3W" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="u5h-vG-gKn"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="TextLabel" destination="Yfj-hh-IUp" id="cub-WJ-U5J"/>
             </connections>
-            <point key="canvasLocation" x="201.59999999999999" y="151.12443778110946"/>
+            <point key="canvasLocation" x="201.59999999999999" y="136.73163418290855"/>
         </tableViewCell>
     </objects>
 </document>

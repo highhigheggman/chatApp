@@ -11,30 +11,60 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="YourChatTableViewCell" customModule="chatApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Lvy-V9-x6z" userLabel="Your Chat Table View Cell" customClass="YourChatTableViewCell" customModule="chatApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="49.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" tableViewCell="Lvy-V9-x6z" id="63J-vD-oV2">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vQn-VA-g5R">
-                        <rect key="frame" x="0.0" y="3" width="282" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LXD-lI-aTK" userLabel="Vertical Stack">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQ9-2g-XhP" userLabel="Horizontal Stack">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wNn-5F-1ZI">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="79.5"/>
+                                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHq-Rl-HQy" userLabel="Dummy View">
+                                        <rect key="frame" x="280" y="0.0" width="120" height="79.5"/>
+                                        <color key="backgroundColor" red="0.52071345840000005" green="1" blue="0.69136595040000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="wNn-5F-1ZI" firstAttribute="height" secondItem="TQ9-2g-XhP" secondAttribute="height" id="7Ms-5v-EbV"/>
+                                    <constraint firstItem="xHq-Rl-HQy" firstAttribute="width" secondItem="TQ9-2g-XhP" secondAttribute="width" multiplier="0.3" id="EOB-98-W1W"/>
+                                    <constraint firstItem="xHq-Rl-HQy" firstAttribute="height" secondItem="TQ9-2g-XhP" secondAttribute="height" id="bZZ-EL-OIf"/>
+                                    <constraint firstItem="wNn-5F-1ZI" firstAttribute="width" secondItem="TQ9-2g-XhP" secondAttribute="width" multiplier="0.7" id="now-SQ-7FA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TQ9-2g-XhP" firstAttribute="height" secondItem="LXD-lI-aTK" secondAttribute="height" id="3FO-am-4b6"/>
+                            <constraint firstItem="TQ9-2g-XhP" firstAttribute="centerY" secondItem="LXD-lI-aTK" secondAttribute="centerY" id="3YN-EF-gLR"/>
+                            <constraint firstItem="TQ9-2g-XhP" firstAttribute="width" secondItem="LXD-lI-aTK" secondAttribute="width" id="xcn-6k-Vig"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" red="0.52071345840000005" green="1" blue="0.69136595040000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="LXD-lI-aTK" firstAttribute="width" secondItem="63J-vD-oV2" secondAttribute="width" id="1Xl-eu-hK8"/>
+                    <constraint firstItem="LXD-lI-aTK" firstAttribute="centerY" secondItem="63J-vD-oV2" secondAttribute="centerY" id="2WG-xv-ZTg"/>
+                    <constraint firstItem="LXD-lI-aTK" firstAttribute="centerX" secondItem="63J-vD-oV2" secondAttribute="centerX" id="Vjn-Xo-alf"/>
+                    <constraint firstItem="LXD-lI-aTK" firstAttribute="height" secondItem="63J-vD-oV2" secondAttribute="height" id="g2I-DY-3Sn"/>
+                </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="L5v-fs-6i0"/>
             <connections>
-                <outlet property="TextLabel" destination="vQn-VA-g5R" id="ytT-oe-Mmv"/>
+                <outlet property="TextLabel" destination="wNn-5F-1ZI" id="VUq-jR-PfC"/>
             </connections>
-            <point key="canvasLocation" x="201.59999999999999" y="151.12443778110946"/>
+            <point key="canvasLocation" x="202" y="62"/>
         </tableViewCell>
     </objects>
 </document>
