@@ -11,15 +11,16 @@ import RealmSwift
 
 class ChatPageViewController: UIViewController {
    
+    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var ChatTable: UITableView!
     @IBOutlet weak var SendMessageButton: UIButton!
     @IBOutlet weak var InputField: UITextField!
     
-    // ToDo: レイヤー分け
+    
+    // ToDo: レイヤー分け, Reactive
     var chatPageModel: ChatPageModel? = nil
     
     private var viewModel: ChatPageViewModel!
-    
     
     @IBAction func SendMessageButtonTapped(_ sender: Any) {
         guard let inputText = InputField.text else {
@@ -50,6 +51,13 @@ class ChatPageViewController: UIViewController {
         
         // Notification
         addNotification()
+        
+        // Reactive
+        //  <Send Signal>
+        let inputFieldSignal = InputField.reactive.continuousTextValues
+        
+        //  <Bind>
+        self.viewModel = ChatPageViewModel(signal: inputFieldSignal)
 
     }
 
@@ -101,18 +109,32 @@ extension ChatPageViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ChatPageViewController {
     
-    fileprivate func addNotification() {
+    func addNotification() {
         
-        NotificationCenter.default.reactive.notifications(forName: UIResponder.keyboardWillShowNotification).observe { _ in
-            print("show Key")
+        NotificationCenter.default.reactive.notifications(forName: UIResponder.keyboardWillShowNotification).observeValues { notification in
+            
+            guard
+                let userInfo = notification.userInfo,
+                let keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+            else { return }
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                self.ScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyBoardHeight, right: 0)
+                self.ScrollView.contentOffset = CGPoint(x: 0, y: keyBoardHeight)
+            })
+
         }
         
         NotificationCenter.default.reactive.notifications(forName: UIResponder.keyboardWillHideNotification).observe { _ in
-            print("hide key")
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                self.ScrollView.contentInset = UIEdgeInsets.zero
+                self.ScrollView.contentOffset = CGPoint.zero
+            })
         }
     }
     
-    fileprivate func removeNotification() {
+    func removeNotification() {
         
     }
 }
